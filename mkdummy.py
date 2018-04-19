@@ -7,10 +7,6 @@ import sys, os, getpass, hashlib
 from os import path
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        file = sys.argv[1]
-    else:
-        file = '.dummy/dummyfile'
     file = None
     size = None
     argv = sys.argv[1:]
@@ -31,7 +27,7 @@ if __name__ == '__main__':
             print('invalid arguments', file=sys.stderr)
             sys.exit(1)
     if not file:
-        file = '.dummy/dummy'
+        file = '.dummy/dummyfile'
     if not size:
         size = 65536
 
@@ -60,7 +56,7 @@ if __name__ == '__main__':
         sys.exit(1)
     if sys.version_info[0] != 2:
         seed = seed.encode()
-    
+
     pos = 0
     with open(file, 'wb') as f:
         while True:
